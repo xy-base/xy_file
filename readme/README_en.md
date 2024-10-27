@@ -24,6 +24,7 @@ Easy File tools, especially for regular.
 ## 安装
 
 ```bash
+# bash
 pip install xy_file
 ```
 
@@ -31,6 +32,7 @@ pip install xy_file
 
 ###### 1. Terminal
 ```bash
+# bash
 # Delete all py files under current work folder.
 xy_file -w clean -g "*.py"
 

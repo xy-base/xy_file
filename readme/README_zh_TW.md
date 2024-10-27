@@ -23,6 +23,7 @@
 ## 安裝
 
 ```bash
+# bash
 pip install xy_file
 ```
 
@@ -30,6 +31,7 @@ pip install xy_file
 
 ###### 1. 命令行
 ```bash
+# bash
 # 刪除目前的目錄下所有 py 文稿檔
 xy_file -w clean -g "*.py"
 

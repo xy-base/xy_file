@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-__author__ = "yuyangit"
+__author__ = "余洋"
 """
   * @File    :   File.py
   * @Time    :   2023/04/22 19:25:26
@@ -40,11 +40,15 @@ class File:
             if auto_cwd:
                 cwd = Path.cwd().resolve()
             else:
-                raise FileNotFoundError("请传入工作目录路径，或者设置为默认当前所在目录路径为工作目录")
+                raise FileNotFoundError(
+                    "请传入工作目录路径，或者设置为默认当前所在目录路径为工作目录"
+                )
         if not os.access(cwd, os.W_OK):
             raise PermissionError(f"当前目录({cwd})没有写入权限")
         if not keyword and not glob_keyword:
-            raise ValueError("请传入关键字(-g/-k)进行过滤, -k支持正则表达式, 使用正则表达式搜索功能")
+            raise ValueError(
+                "请传入关键字(-g/-k)进行过滤, -k支持正则表达式, 使用正则表达式搜索功能"
+            )
         if isinstance(cwd, str):
             cwd = Path(cwd)
         if not isinstance(file_type_filter, FileTypeFilter):
