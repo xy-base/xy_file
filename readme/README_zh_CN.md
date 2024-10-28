@@ -33,7 +33,7 @@ pip install xy_file
 ###### 1. 命令行
 ```bash
 # bash
-# 删除当前目录下所有 py 脚本文件
+# 删除当前目录下所有 后缀为py 文件
 xy_file -w clean -g "*.py"
 
 ```

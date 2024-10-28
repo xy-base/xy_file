@@ -15,7 +15,6 @@ import logging
 from pathlib import Path
 import shutil
 
-
 from .Filter import FileTypeFilter
 
 
@@ -104,7 +103,7 @@ class File:
             if (
                 should_delete_function
                 and callable(should_delete_function)
-                and should_delete_function(file_path_list, invalidate_file_path_list)
+                and should_delete_function(file_path_list)
             ):
                 log_info("删除开始...")
                 if not verbose:
