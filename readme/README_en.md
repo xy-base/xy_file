@@ -21,7 +21,7 @@ Easy File tools, especially for regular.
 - <a href="https://github.com/xy-base/xy_file.git" target="_blank">Github</a>  
 - <a href="https://gitee.com/xy-base/xy_file.git" target="_blank">Gitee</a>
 
-## 安装
+## Installation
 
 ```bash
 # bash
