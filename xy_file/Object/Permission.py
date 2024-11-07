@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
 __author__ = "余洋"
-__doc__ = "Main"
+__doc__ = "Permission"
 """
-  * @File    :   Main.py
-  * @Time    :   2024/11/05 21:45:08
+  * @File    :   Permission.py
+  * @Time    :   2024/11/06 20:27:11
   * @Author  :   余洋
   * @Version :   0.0.1
   * @Contact :   yuyangit.0515@qq.com
@@ -11,13 +11,6 @@ __doc__ = "Main"
   * @Desc    :   
 """
 
-from xy_file.Runner import Runner
 
-
-def main():
-    runner = Runner()
-    runner.main()
-
-
-if __name__ == "__main__":
-    main()
+class Permission:
+    pass

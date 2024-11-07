@@ -17,7 +17,7 @@ readme = "README.md"
 
 classifiers = ["Programming Language :: Python :: 3"]
 
-dependencies = ["rich"]
+dependencies = ["rich", "faker", "xy_argparse", "xy_console",]
 
 [project.scripts]
 xy_file = "xy_file.execute.Main:main"

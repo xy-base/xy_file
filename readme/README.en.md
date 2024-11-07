@@ -3,14 +3,14 @@
  * @Date: 2024-10-18 20:12:00
  * @LastEditors: yuyangit yuyangit.0515@qq.com
  * @LastEditTime: 2024-10-18 20:16:14
- * @FilePath: /xy_file/readme/README_en.md
+ * @FilePath: /xy_file/readme/README.en.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # xy_file
 
-- [简体中文](README_zh_CN.md)
-- [繁体中文](README_zh_TW.md)
-- [English](README_en.md)
+- [简体中文](README.md)
+- [繁體中文](README.zh-hant.md)
+- [English](README.en.md)
 
 
 ## Description

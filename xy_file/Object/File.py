@@ -3,7 +3,7 @@ __author__ = "余洋"
 """
   * @File    :   File.py
   * @Time    :   2023/04/22 19:25:26
-  * @Author  :   余洋 
+  * @Author  :   余洋
   * @Version :   1.0
   * @Contact :   yuyangit.0515@qq.com
   * @License :   (C)Copyright 2019-2024, 希洋 (Ship of Ocean)
@@ -14,17 +14,17 @@ import re
 import logging
 from pathlib import Path
 import shutil
-
-from .Filter import FileTypeFilter
+from xy_file.types import FileType
 
 
 class File:
+
     @staticmethod
     def clean(
         keyword: str | None,
         cwd: Path | str | None,
         glob_keyword: str | None,
-        file_type_filter: int | str = FileTypeFilter.ANY.value,
+        file_type_filter: int | str = FileType.ANY.value,
         verbose: bool = False,
         auto_cwd: bool = True,
         ignore_hidden_files: bool = True,
@@ -50,8 +50,8 @@ class File:
             )
         if isinstance(cwd, str):
             cwd = Path(cwd)
-        if not isinstance(file_type_filter, FileTypeFilter):
-            file_type_filter = FileTypeFilter.parse(file_type_filter)
+        if not isinstance(file_type_filter, FileType):
+            file_type_filter = FileType.parse(file_type_filter)
         file_path_list = []
         invalidate_file_path_list = []
         work_glob = cwd.rglob(glob_keyword) if isinstance(glob_keyword, str) else []
@@ -176,20 +176,22 @@ class File:
             log_error("当前目录下暂无符合规则的文件或目录待清理")
 
     @staticmethod
-    def touch(file_path: Path | str | None) -> Path | None:
+    def touch(
+        file_path: Path | str | None,
+        force: bool = True,
+    ) -> Path | None:
         if not file_path:
             return None
 
         if isinstance(file_path, str):
             file_path = Path(file_path)
 
-        if file_path.exists():
-            if file_path.exists():
-                return file_path
-            return None
+        if isinstance(file_path, Path) and file_path.exists():
+            return file_path
 
         try:
-            file_path.parent.mkdir(parents=True, exist_ok=True)
+            if force:
+                file_path.parent.mkdir(parents=True, exist_ok=True)
             file_path.touch()
             return file_path.resolve()
         except Exception as exception:
