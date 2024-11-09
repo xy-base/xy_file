@@ -313,7 +313,7 @@ xy_file -w r -sp ".xt" -rp ".txt"
 ```
 
 
-###### 2. python腳本
+###### 2. Python腳本
 
 ```python
 # Python 解释器
