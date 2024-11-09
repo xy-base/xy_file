@@ -12,6 +12,7 @@ __doc__ = "Search"
 """
 
 import re
+from re import RegexFlag
 from pathlib import Path
 from xy_file.types import FileType
 
@@ -21,7 +22,11 @@ class Search:
     work_dir: Path = Path.cwd()
     keyword: str = ""
     ignore_hidden_files: bool = True
-    regex_flag: re.RegexFlag = re.M
+    regex_flag: RegexFlag = re.M
+    deep_start: int = 0
+    # deep_start 0 => 绝对路径所有, -1 => 最后文件名.
+    deep_count: int = -1
+    # deep_count -1 => 递归所有, 0 => 仅当前, 1 => 当前+1级, 2 => 当前+2级, ...
 
     def validated_path(self, path: Path) -> Path | None:
         path_validate = self.file_type.validate(path=path)
@@ -35,23 +40,26 @@ class Search:
         else:
             return None
 
+    def deeped_path(self, path: Path) -> str:
+        path_parts = None
+        if self.deep_start == 0:
+            path_parts = path.parts
+        elif self.deep_start == -1:
+            path_parts = path.parts[-1:]
+        else:
+            path_parts = path.parts[self.deep_start : self.deep_start + self.deep_count]
+        if len(path_parts) > 0:
+            path_str = "/".join(path_parts)
+            if path_parts[0] == "/":
+                path_str = path_str[1:]
+            return path_str
+        return ""
+
     def pattern(self) -> re.Pattern:
         return re.compile(
             self.keyword,
             flags=self.regex_flag,
         )
-
-    def match(
-        self,
-        path: Path,
-    ) -> bool:
-        pattern = self.pattern()
-        validated_path = self.validated_path(path)
-        if isinstance(pattern, re.Pattern) and isinstance(validated_path, Path):
-            results = pattern.match(path.as_posix())
-            if results != None:
-                return True
-        return False
 
     def search(
         self,
@@ -60,7 +68,8 @@ class Search:
         pattern = self.pattern()
         validated_path = self.validated_path(path)
         if isinstance(pattern, re.Pattern) and isinstance(validated_path, Path):
-            results = pattern.search(path.as_posix())
+            deeped_path = self.deeped_path(validated_path)
+            results = pattern.search(deeped_path)
             if results != None:
                 return True
         return False

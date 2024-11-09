@@ -32,11 +32,11 @@ class FileType(IntEnum):
             return FileType.ANY
 
         names = [member for member in cls if member.name.upper() == file_type_filter]
-        if not names and len(names) > 0:
+        if names and len(names) > 0:
             return names[0]
 
         values = [member for member in cls if member.value == file_type_filter]
-        if not values and len(values) > 0:
+        if values and len(values) > 0:
             return values[0]
 
         return FileType.ANY
