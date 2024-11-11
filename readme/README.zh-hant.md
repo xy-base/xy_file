@@ -8,18 +8,17 @@
 -->
 # xy_file
 
-- [简体中文](../README.md)
-- [繁體中文](README.zh-hant.md)
-- [English](README.en.md)
+| [简体中文](../README.md)         | [繁體中文](./README.zh-hant.md)        |                      [English](./README.en.md)          |
+| ----------- | -------------|---------------------------------------|
 
 ## 說明
 簡單檔操作工具，特殊功能為不同路徑匹配規則的添加。
 
 ## 程式碼庫
 
-- <a href="https://github.com/xy-base/xy_file.git" target="_blank">Github位址</a>  
-- <a href="https://gitee.com/xy-opensource/xy_file.git" target="_blank">Gitee位址</a>  
-- <a href="https://gitcode.com/xy-opensource/xy_file.git" target="_blank">GitCode位址</a>  
+| [Github](https://github.com/xy-base/xy_file.git)         | [Gitee](https://gitee.com/xy-opensource/xy_file.git)        |                      [GitCode](https://gitcode.com/xy-opensource/xy_file.git)          |
+| ----------- | -------------|---------------------------------------|
+
 
 ## 安裝
 
