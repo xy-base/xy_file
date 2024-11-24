@@ -44,7 +44,7 @@ class Runner(ArgParse):
             "--work",
             help_text="""
                 命令:
-                clean | c => 常用清理文件或目录,通配符匹配, 配合 -r/--rglob-keyword 使用, 默认 **/*, 表示当前目录下所有匹配的文件和目录;
+                clean | c => 常用清理文件或目录,通配符匹配, 配合 -r/--rglob-keyword 使用, 默认为空, 表示当前目录下所有匹配的文件和目录;
                 search_clean | sc => 正则表达式搜索文件或目录来清理文件或目录, 配合 -k/--keyword 使用, 必须符合正则表达式;
                 rglob_files | rf => 通配符匹配文件或目录, 配合 -r/--rglob-keyword 使用, 默认 **/*, 表示当前目录下所有匹配的文件和目录;
                 search_files | sf => 正则表达式搜索文件或目录,, 配合 -k/--keyword 使用, 必须符合正则表达式;
@@ -73,9 +73,7 @@ class Runner(ArgParse):
             help_text="""
             通配符
             工作目录过滤匹配关键字; 
-            默认: **/*, 当前目录下的全部文件和目录，
-            可选，工作目录过滤关键字，使用通配符进行匹配，例如 *.py表示当前目录下所有py脚本""",
-            default="**/*",
+            默认为空, 可选，工作目录过滤关键字，使用通配符进行匹配，例如 *.py表示当前目录下所有py脚本""",
         )
         self.add_argument(
             "-k",
